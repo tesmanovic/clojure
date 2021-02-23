@@ -1,0 +1,2 @@
+https://insideclojure.org/feed.xml
+https://purelyfunctional.tv/feed/normal-feed
