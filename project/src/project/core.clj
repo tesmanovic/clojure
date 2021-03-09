@@ -9,6 +9,15 @@
   (with-open [reader (clojure.java.io/reader "config.txt")]
     (reduce conj [] (line-seq reader))))
 
+(defn description [feed num]
+  (clojure.string/replace
+    (first (:content (extract-description (:content (choosen-item feed num)))))
+    #"<[^>]*>"
+    ""))
+
+(defn parse-command-number [start input]
+  (nth (re-matches (re-pattern (str ":" start "([0-9]+)")) input) 1 "nil"))
+
 (def help-text "Usage :[command]
  commands:
   :h - help
