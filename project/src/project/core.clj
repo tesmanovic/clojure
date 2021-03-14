@@ -9,6 +9,24 @@
   (with-open [reader (clojure.java.io/reader "config.txt")]
     (reduce conj [] (line-seq reader))))
 
+(defn extract-channel [response]
+  ;to-do
+  )
+
+(defn extract-items [channel-xml]
+  ;to-do
+  )
+(defn extract-description [item-content]
+  ;to-do
+  )
+
+(defn choosen-item [feed num]
+  (->  feed
+       (extract-channel)
+       (extract-items)
+       (nth num))
+  )
+
 (defn description [feed num]
   (clojure.string/replace
     (first (:content (extract-description (:content (choosen-item feed num)))))
