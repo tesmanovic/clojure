@@ -9,13 +9,17 @@
   (with-open [reader (clojure.java.io/reader "config.txt")]
     (reduce conj [] (line-seq reader))))
 
-(defn extract-channel [response]
+(defn transform-to-xml [xml]
   ;to-do
   )
+(defn extract-channel [response]
+  (first (:content (transform-to-xml (:body response)))))
 
 (defn extract-items [channel-xml]
-  ;to-do
-  )
+  (filter
+    (fn [item] (= (:tag item) :item))
+    (:content channel-xml)))
+
 (defn extract-description [item-content]
   ;to-do
   )
