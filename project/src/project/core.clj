@@ -97,6 +97,6 @@
           (not= (parse-command-number "s" input) "nil") (do (println (description feed (Integer/parseInt (parse-command-number "s" input)))) feed)
           :else (do (println "Uknown command") (println help-text) feed))
         (read-line)))
-  )
+    )
 
   (println "End"))

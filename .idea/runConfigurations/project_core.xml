@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="project.core" type="ClojureScriptRunConfiguration" factoryName="Clojure Script">
+    <module name="project.core" />
+    <setting name="path" value="" />
+    <setting name="namespace" value="project.core" />
+    <setting name="execution" value="LEININGEN" />
+    <setting name="profiles" value="" />
+    <setting name="aliases" value="" />
+    <setting name="vmparams" value="" />
+    <setting name="params" value="" />
+    <setting name="workDir" value="$PROJECT_DIR$/project" />
+    <shortenClasspath name="NONE" />
+    <method v="2" />
+  </configuration>
+</component>
