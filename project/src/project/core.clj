@@ -37,7 +37,7 @@
 (defn numbering [col]
   (map (fn [text num] (str num ". " text)  ) col (range (count col))))
 
-(defn formated-titles [feed]
+(defn formatted-titles [feed]
   (->> feed
        (extract-channel)
        (extract-items)
@@ -45,7 +45,7 @@
        (map (fn [title] (first (:content title))))
        (numbering)))
 
-(defn formated-rss []
+(defn formatted-rss []
   (->> (read-rss-config-file)
        (numbering)))
 
@@ -90,9 +90,9 @@
       (recur
         (cond
           (not= (parse-command-number "r" input) "nil") (get-feed (nth (read-rss-config-file) (Integer/parseInt (parse-command-number "r" input))))
-          (= ":lr" input) (do (nice-print (formated-rss)) feed)
+          (= ":lr" input) (do (nice-print (formatted-rss)) feed)
           (= feed "") (do (println "Need feed") feed)
-          (= ":ls" input) (do (nice-print (formated-titles feed)) feed)
+          (= ":ls" input) (do (nice-print (formatted-titles feed)) feed)
           (= ":h" input) (do (println help-text) feed)
           (not= (parse-command-number "s" input) "nil") (do (println (description feed (Integer/parseInt (parse-command-number "s" input)))) feed)
           :else (do (println "Uknown command") (println help-text) feed))
